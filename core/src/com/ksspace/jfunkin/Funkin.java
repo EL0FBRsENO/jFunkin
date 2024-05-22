@@ -5,10 +5,18 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 
 public class Funkin extends Game {
-
     public static Funkin INSTANCE;
     private int windowWidth, windowHeight;
-    private OrthographicCamera orthographicCamera;
+
+    public static final class paths {
+
+        public static final String images = "shared/images/";
+        public static class images {
+
+            public static final String characters = "shared/images/characters/";
+
+        }
+    }
 
     public Funkin() {
         INSTANCE = this;
@@ -16,12 +24,12 @@ public class Funkin extends Game {
 
     @Override
     public void create () {
-        System.out.println("We Funkin'!");
+        System.out.println("<Funkin>: We Funkin'!");
 
         this.windowWidth 	= Gdx.graphics.getWidth();
         this.windowHeight 	= Gdx.graphics.getHeight();
-        this.orthographicCamera = new OrthographicCamera();
-        this.orthographicCamera.setToOrtho(false, windowWidth, windowHeight);
+        OrthographicCamera orthographicCamera = new OrthographicCamera();
+        orthographicCamera.setToOrtho(false, windowWidth, windowHeight);
 
         setScreen(new GameScreen(orthographicCamera));
 
